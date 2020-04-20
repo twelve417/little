@@ -1,0 +1,8 @@
+1:try
+select ts,
+count(case when Bh='pv' then 1 else 0 end) as "pass over",
+count(if(Bh='buy',1,null)) as "buy",
+count(if(Bh='fav',1,null))as "favorite",
+count(if(Bh='cart',1,null)) as "put in cart"
+from usertest1
+GROUP BY ts
